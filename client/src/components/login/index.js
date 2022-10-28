@@ -12,10 +12,8 @@ const Login = () => {
 
     async function loginUser(event) {
 
-
-
         event.preventDefault()
-        const response = await fetch('http://localhost:1337/api/register', {
+        const response = await fetch('http://localhost:1337/api/login', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -28,7 +26,13 @@ const Login = () => {
         })
 
         const data = await response.json()
-        console.log(data)
+        if (data.user) {
+			localStorage.setItem('token', data.user)
+			alert('Login successful')
+			window.location.href = '/'
+		} else {
+			alert('Please check your username and password')
+		}
         // if (data.status === 'ok'){
         //     history.pushState('/login')
         // }
@@ -45,7 +49,9 @@ const Login = () => {
                     <input
                     value = {email}
                     onChange={(e) => setEmail(e.target.value)} 
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+                    type ="email"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    placeholder="email" />
                 </div>
                 <div className="mb-6">
                     <label className="block text-gray-700 text-sm font-bold mb-2" for="password">
@@ -54,11 +60,15 @@ const Login = () => {
                     <input
                     value = {password}
                     onChange={(e) => setPassword(e.target.value)} 
-                    className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+                    type="password"
+                    className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+                    placeholder="*************" />
                         <p className="text-red-500 text-xs italic">Please choose a password.</p>
                 </div>
                 <div className="flex items-center justify-between">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    <button 
+                    type="submit"
+                    value="Login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >
                         Sign In
                     </button>
                     <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">

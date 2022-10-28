@@ -1,38 +1,38 @@
 import React from 'react'
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import './index.css'
 
 const Register = () => {
 
+    const navigate = useNavigate()
     const [name, setName ] = useState('')
     const [email, setEmail ] = useState('') 
     const [password, setPassword] = useState('')
 
 
     async function registerUser(event) {
+		event.preventDefault()
 
+		const response = await fetch('http://localhost:1337/api/register', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				name,
+				email,
+				password,
+			}),
+		})
 
+		const data = await response.json()
 
-        event.preventDefault()
-        const response = await fetch('http://localhost:1337/api/register', {
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name,
-                email,
-                password,
+		if (data.status === 'ok') {
+			navigate('/')
+		}
+	}
 
-            }),
-        })
-
-        const data = await response.json()
-        console.log(data)
-        // if (data.status === 'ok'){
-        //     history.pushState('/login')
-        // }
-    }
 
   return (
     <div className="bg-grey-lighter min-h-screen flex flex-col">
