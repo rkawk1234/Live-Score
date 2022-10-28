@@ -46,7 +46,6 @@ const Register = () => {
 
 		const data = await response.json()
 
-        localStorage.setItem("user",JSON.stringify(data))
 
 		if (data.status === 'ok') {
 			navigate('/')

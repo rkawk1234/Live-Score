@@ -14,7 +14,7 @@ const Login = () => {
     useEffect(()=> {
         const token = localStorage.getItem('token')
         if (token){
-     
+            
           navigate('/')
           // if (!user){
           //   localStorage.removeItem('token')
@@ -46,6 +46,7 @@ const Login = () => {
         })
 
         const data = await response.json()
+
         if (data.user) {
 			localStorage.setItem('token', data.user)
 			alert('Login successful')

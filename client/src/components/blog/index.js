@@ -12,7 +12,8 @@ const Blog = () => {
     const token = localStorage.getItem('token')
     if (token){
       const user = jwt_decode(token)
-      console.log(user)
+      const name = user.name
+      console.log(name)
       // if (!user){
       //   localStorage.removeItem('token')
       //   navigate('/')
