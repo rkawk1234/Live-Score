@@ -1,5 +1,6 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 import './index.css'
 
 
@@ -8,6 +9,25 @@ const Login = () => {
 
     const [email, setEmail ] = useState('') 
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
+    
+    useEffect(()=> {
+        const token = localStorage.getItem('token')
+        if (token){
+     
+          navigate('/')
+          // if (!user){
+          //   localStorage.removeItem('token')
+          //   navigate('/')
+          // } else{
+    
+            
+    
+          // }
+        }
+
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+      },[])
 
 
     async function loginUser(event) {

@@ -13,14 +13,18 @@ const Blog = () => {
     if (token){
       const user = jwt_decode(token)
       console.log(user)
-      if (!user){
-        localStorage.removeItem('token')
-        navigate('/login')
-      } else{
+      // if (!user){
+      //   localStorage.removeItem('token')
+      //   navigate('/')
+      // } else{
 
-        <div></div>
+        
 
-      }
+      // }
+    }
+    else{
+      navigate('/login')
+
     }
       // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
