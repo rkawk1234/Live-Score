@@ -50,7 +50,7 @@ function App() {
       <div className="App">
         <Router>
 
-        <ul className='flex justify-between'>
+        <ul className='flex justify-evenly border-4 border-gray-600'>
 
           <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200 '>
             <Link to="/">Home</Link>
