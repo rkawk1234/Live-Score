@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const mongoose = require('mongoose')
 
-app.use(cors({
-    origin: '*' // that will for all like  https / http 
-  }))
+
+app.use(cors())
 app.use(express.json())
 
+mongoose.connect('mongodb://localhost:27017')
 
 app.post('/api/register',(req,res) =>{
     console.log(req.body)
