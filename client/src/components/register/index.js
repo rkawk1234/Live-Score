@@ -1,15 +1,14 @@
 import React from 'react'
 import './index.css'
 
-
-const Hand = () => {
+const Register = () => {
   return (
     <div>
 
-        Discuss past poker hands
+        Register Page
       
     </div>
   )
 }
 
-export default Hand
+export default Register
