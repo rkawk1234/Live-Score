@@ -6,10 +6,13 @@ const Register = () => {
 
     const [name, setName ] = useState('')
     const [email, setEmail ] = useState('') 
-    const [password1, setPassword1] = useState('')
-    const [password2, setPassword2] = useState('')
+    const [password, setPassword] = useState('')
+
 
     async function registerUser(event) {
+
+
+
         event.preventDefault()
         const response = await fetch('http://localhost:1337/api/register', {
             method: 'POST',
@@ -19,8 +22,8 @@ const Register = () => {
             body: JSON.stringify({
                 name,
                 email,
-                password1,
-                password2,
+                password,
+
             }),
         })
 
@@ -34,39 +37,33 @@ const Register = () => {
   return (
     <div className="bg-grey-lighter min-h-screen flex flex-col">
             <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <form onSubmit ={registerUser} class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                    <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+                <form onSubmit ={registerUser} className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                    <h1 className="mb-8 text-3xl text-center">Sign up</h1>
                     <input 
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         type="text"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         placeholder="Full Name" />
 
                     <input 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         placeholder="Email" />
 
                     <input 
-                        value ={password1}
-                        onChange={(e) => setPassword1(e.target.value)}
+                        value ={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         type="password"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         placeholder="Password" />
-                    <input 
-                        value={password2}
-                        onChange={(e) => setPassword2(e.target.value)}
-                        type="password"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
-                        placeholder="Confirm Password" />
 
                     <button
                         type="submit"
                         value = "Register"
-                        class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             Create Account</button>
                 </form>
 
