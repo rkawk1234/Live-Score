@@ -10,24 +10,6 @@ const Register = () => {
     const [email, setEmail ] = useState('') 
     const [password, setPassword] = useState('')
 
-    // useEffect(()=> {
-    //     const token = localStorage.getItem('token')
-    //     // if (token){
-     
-    //     //   navigate('/')
-    //     //   // if (!user){
-    //     //   //   localStorage.removeItem('token')
-    //     //   //   navigate('/')
-    //     //   // } else{
-    
-            
-    
-    //     //   // }
-    //     // }
-
-    //       // eslint-disable-next-line react-hooks/exhaustive-deps
-    //   },[])
-
 
     async function registerUser(event) {
 		event.preventDefault()

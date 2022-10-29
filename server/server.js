@@ -19,7 +19,9 @@ app.post('/api/register', async (req, res) => {
 			name: req.body.name,
 			email: req.body.email,
 			password: newPassword,
+
 		})
+        
 		res.json({ status: 'ok' })
 	} catch (err) {
 		res.json({ status: 'error', error: 'Duplicate email' })
@@ -32,7 +34,7 @@ app.post('/api/login', async (req, res) => {
 	})
 
 	if (!user) {
-		return { status: 'error', error: 'Invalid login' }
+		return { status: 'error', error: 'Invalid Email' }
 	}
 
 	const isPasswordValid = await bcrypt.compare(
