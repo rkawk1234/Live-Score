@@ -14,7 +14,7 @@ const Login = () => {
     useEffect(()=> {
         const token = localStorage.getItem('token')
         if (token){
-            
+
           navigate('/')
           // if (!user){
           //   localStorage.removeItem('token')
@@ -28,6 +28,13 @@ const Login = () => {
 
           // eslint-disable-next-line react-hooks/exhaustive-deps
       },[])
+
+      const routeChange =()=>{
+ 
+        navigate('/register')
+      }
+
+   
 
 
     async function loginUser(event) {
@@ -61,8 +68,9 @@ const Login = () => {
 
     return (
 
-        <div className="w-full max-w-xs">
-            <form onSubmit={loginUser} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="grid place-items-center w-full h-screen ">
+            <form onSubmit={loginUser} className="h-1/2 w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <h3 className="text-center text-2xl text-gray-500 hover:scale-125 duration-200">Login</h3>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
                         email
@@ -92,12 +100,16 @@ const Login = () => {
                     value="Login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >
                         Sign In
                     </button>
-                    <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                    type="button"
+                    onClick={routeChange}
+                    >
                         Register
                     </button>
 
                 </div>
             </form>
+        
         </div>
 
 
