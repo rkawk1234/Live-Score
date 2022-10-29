@@ -31,9 +31,35 @@ app.post('/api/register', async (req, res) => {
 })
 
 app.post('/api/login', async (req, res) => {
+
+
+
 	const user = await User.findOne({
 		email: req.body.email,
 	})
+
+    await User.findOneAndUpdate(
+        {email: req.body.email},
+        {$inc :{visits : 1}},
+        // {$inc:{points: 1000}},
+        
+    )
+
+    // const isTrue = await User.findOne({
+    //     visits: 1
+    // })
+    // if (isTrue){
+    //     await User.findOneAndUpdate(
+    //         {email: req.body.email},
+    //         {$inc :{points : 1000}}
+            
+    //     )
+
+    // }
+
+    
+
+
 
 	if (!user) {
 		return { status: 'error', error: 'Invalid Email' }

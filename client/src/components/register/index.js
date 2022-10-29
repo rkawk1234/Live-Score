@@ -9,7 +9,7 @@ const Register = () => {
     const [name, setName ] = useState('')
     const [email, setEmail ] = useState('') 
     const [password, setPassword] = useState('')
-    var points = 10000
+    var points = 0
     var visits = 0
 
     
