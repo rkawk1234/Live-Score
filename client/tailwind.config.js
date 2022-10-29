@@ -8,6 +8,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       signature: ["Pacifico"],
+      myFont:["Fuzzy Bubbles"]
     }
   },
   plugins: [],

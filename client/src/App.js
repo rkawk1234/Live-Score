@@ -44,24 +44,27 @@ function App() {
           <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200 '>
             <Link to="/">Home</Link>
           </li>
+
+          {bool&& (
           <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
             <Link to='/blog'>Blog</Link>
-          </li>
+          </li>)}
+
           <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
             <Link to='/register'>Register</Link>
           </li>
-          <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+          {!bool && (<li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
             <Link to='/login'>Login</Link>
-          </li>
+          </li>)}
           
-          <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
+          {bool &&(<li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
               onClick={()=>{
                 localStorage.clear()
                 setBool(!bool)
                 
                 // bool= !bool
                 
-              }}><Link to='/login'>Logout</Link></li>
+              }}><Link to='/login'>Logout</Link></li>)}
 
           <li className='mr-2'>User: {user ? user.email : ""}</li>
         </ul>

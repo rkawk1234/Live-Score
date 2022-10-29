@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import './index.css'
 
@@ -11,23 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     
-    useEffect(()=> {
-        const token = localStorage.getItem('token')
-        if (token){
 
-          navigate('/')
-          // if (!user){
-          //   localStorage.removeItem('token')
-          //   navigate('/')
-          // } else{
-    
-            
-    
-          // }
-        }
-
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-      },[])
 
       const routeChange =()=>{
  
@@ -70,7 +54,7 @@ const Login = () => {
 
         <div className="grid place-items-center w-full h-screen ">
             <form onSubmit={loginUser} className="h-1/2 w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                <h3 className="text-center text-2xl text-gray-500 hover:scale-125 duration-200">Login</h3>
+                <h3 className="font-myFont text-center text-3xl ">Login</h3>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
                         email
@@ -90,9 +74,9 @@ const Login = () => {
                     value = {password}
                     onChange={(e) => setPassword(e.target.value)} 
                     type="password"
-                    className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+                    className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
                     placeholder="*************" />
-                        <p className="text-red-500 text-xs italic">Please choose a password.</p>
+
                 </div>
                 <div className="flex items-center justify-between">
                     <button 

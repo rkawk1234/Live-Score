@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './index.css'
 
@@ -10,23 +10,23 @@ const Register = () => {
     const [email, setEmail ] = useState('') 
     const [password, setPassword] = useState('')
 
-    useEffect(()=> {
-        const token = localStorage.getItem('token')
-        if (token){
+    // useEffect(()=> {
+    //     const token = localStorage.getItem('token')
+    //     // if (token){
      
-          navigate('/')
-          // if (!user){
-          //   localStorage.removeItem('token')
-          //   navigate('/')
-          // } else{
+    //     //   navigate('/')
+    //     //   // if (!user){
+    //     //   //   localStorage.removeItem('token')
+    //     //   //   navigate('/')
+    //     //   // } else{
     
             
     
-          // }
-        }
+    //     //   // }
+    //     // }
 
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-      },[])
+    //       // eslint-disable-next-line react-hooks/exhaustive-deps
+    //   },[])
 
 
     async function registerUser(event) {
@@ -57,7 +57,7 @@ const Register = () => {
     <div className="bg-grey-lighter min-h-screen flex flex-col">
             <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <form onSubmit ={registerUser} className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                    <h1 className="mb-8 text-3xl text-center">Sign up</h1>
+                    <h1 className="mb-8 font-myFont text-3xl text-center">Sign up</h1>
                     <input 
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -86,9 +86,6 @@ const Register = () => {
                             Create Account</button>
                 </form>
 
-                <div className="text-grey-dark mt-6">
-                    Already have an account?
-                </div>
             </div>
         </div>
   )
