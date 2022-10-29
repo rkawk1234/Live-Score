@@ -41,31 +41,31 @@ function App() {
 
         
 
-      <div className='flex justify-between w-full border-4 border-gray-600 bg-gray-900'>
+      <div className='flex justify-between w-full  h-20 bg-gray-900'>
 
-      <div className=' text-gray-500 hover:scale-125'>User: {user ? user.email : ""}</div>
+      <div className='my-auto text-gray-500 hover:scale-125'>User: {user ? user.email : ""}</div>
         
 
-        <ul className=' hidden md:flex'>
+        <ul className='md:flex'>
           
 
-          <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200 '>
+          <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200 '>
             <Link to="/">Home</Link>
           </li>
 
           {bool&& (
-          <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+          <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
             <Link to='/blog'>Blog</Link>
           </li>)}
 
-          <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+          <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
             <Link to='/register'>Register</Link>
           </li>
-          {!bool && (<li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+          {!bool && (<li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
             <Link to='/login'>Login</Link>
           </li>)}
           
-          {bool &&(<li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
+          {bool &&(<li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
               onClick={()=>{
                 localStorage.clear()
                 setBool(!bool)

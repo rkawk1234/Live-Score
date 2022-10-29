@@ -30,8 +30,7 @@ const Blog = () => {
 
 
   return(
-    <div>
-          Welcome To the Poker Blog!
+    <div className='h-screen w-full bg-gradient-to-b from-stone-600 to-stone-300'>
        </div>
 
   )
