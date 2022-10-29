@@ -54,7 +54,8 @@ const Register = () => {
 
 
   return (
-    <div className="bg-grey-lighter min-h-screen flex flex-col">
+
+    <div className='flex flex-col h-screen w-full bg-gradient-to-b from-zinc-500 to-zinc-700'>
             <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <form onSubmit ={registerUser} className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                     <h1 className="mb-8 font-myFont text-3xl text-center">Sign up</h1>
@@ -87,6 +88,7 @@ const Register = () => {
                 </form>
 
             </div>
+
         </div>
   )
 }

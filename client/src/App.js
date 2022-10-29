@@ -39,7 +39,15 @@ function App() {
       <div className="App">
         <Router>
 
-        <ul className='flex justify-evenly border-4 border-gray-600'>
+        
+
+      <div className='flex justify-between w-full border-4 border-gray-600 bg-gray-900'>
+
+      <div className=' text-gray-500 hover:scale-125'>User: {user ? user.email : ""}</div>
+        
+
+        <ul className=' hidden md:flex'>
+          
 
           <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200 '>
             <Link to="/">Home</Link>
@@ -66,8 +74,9 @@ function App() {
                 
               }}><Link to='/login'>Logout</Link></li>)}
 
-          <li className='mr-2'>User: {user ? user.email : ""}</li>
+          
         </ul>
+        </div>
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path='/blog' element={<Blog />} />

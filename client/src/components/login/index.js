@@ -52,7 +52,7 @@ const Login = () => {
 
     return (
 
-        <div className="grid place-items-center w-full h-screen ">
+        <div className="grid place-items-center h-screen w-full bg-gradient-to-b from-zinc-500 to-zinc-700 ">
             <form onSubmit={loginUser} className="h-1/2 w-1/3 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <h3 className="font-myFont text-center text-3xl ">Login</h3>
                 <div className="mb-4">
