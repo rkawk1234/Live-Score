@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './components/home';
 import Login from './components/login';
 import Register from './components/register';
@@ -17,12 +17,10 @@ function App() {
 
   const [bool, setBool] = useState(true)
 
-  useEffect(() => {
-    
-  },[bool])
-  const handleClick = event =>{
-    setBool(!bool)
-  }
+
+  // const handleClick = event =>{
+  //   setBool(!bool)
+  // }
   // const forceUpdate = useForceUpdate()
   const token = localStorage.getItem('token')
   var user
@@ -59,11 +57,13 @@ function App() {
           <li className='px-4 pb-2 pt-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
               onClick={()=>{
                 localStorage.clear()
-                bool= !bool
+                setBool(!bool)
+                
+                // bool= !bool
                 
               }}><Link to='/login'>Logout</Link></li>
 
-          <li className='mr-2'>User: {bool ? user.email : ""}</li>
+          <li className='mr-2'>User: {user ? user.email : ""}</li>
         </ul>
         <Routes>
           <Route exact path='/' element={<Home />} />
