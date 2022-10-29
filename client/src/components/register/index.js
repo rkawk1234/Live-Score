@@ -9,7 +9,10 @@ const Register = () => {
     const [name, setName ] = useState('')
     const [email, setEmail ] = useState('') 
     const [password, setPassword] = useState('')
+    var points = 10000
+    var visits = 0
 
+    
 
     async function registerUser(event) {
 		event.preventDefault()
@@ -23,6 +26,8 @@ const Register = () => {
 				name,
 				email,
 				password,
+                points,
+                visits,
 			}),
 		})
 

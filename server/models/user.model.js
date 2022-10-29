@@ -6,7 +6,8 @@ const User = new mongoose.Schema(
         name: { type: String, required: true },
         email: { type: String, required: true, unique: true},
         password: { type: String, required: true },
-        // points: { type: Number, required: true, default: 10000},
+        points: { type: Number, required: true, default: 1000},
+        visits: { type: Number, required: true, default: 0}
     },
     { collectiopn: 'user-data' }
 )
@@ -14,3 +15,4 @@ const User = new mongoose.Schema(
 const model = mongoose.model('UserData', User)
 
 module.exports = model
+

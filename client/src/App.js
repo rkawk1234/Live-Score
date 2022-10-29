@@ -38,7 +38,7 @@ function App() {
 
       <div className='flex justify-between w-full  h-20 bg-gray-900'>
 
-      <div className='my-auto text-gray-500 hover:scale-125'>Points: {user ? user.points : ""}</div>
+      <div className='my-auto pl-5 text-gray-500 hover:scale-125'>Points: {user ? user.points : ""}</div>
 
         <ul className='md:flex'>
           
@@ -63,9 +63,6 @@ function App() {
           <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
               onClick={()=>{
                 localStorage.clear()
-
-                
-                // bool= !bool
                 
               }}><Link to='/login'>Logout</Link></li>
 
