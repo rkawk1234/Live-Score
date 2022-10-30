@@ -53,9 +53,9 @@ function App() {
           </li>
 
           
-          <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+          {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
             <Link to='/blog'>Blog</Link>
-          </li>
+          </li>}
 
           <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
             <Link to='/register'>Register</Link>

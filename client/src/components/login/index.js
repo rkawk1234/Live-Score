@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import jwt_decode from 'jwt-decode'
 import './index.css'
 
 
@@ -10,13 +11,23 @@ const Login = () => {
     const [email, setEmail ] = useState('') 
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    // const token = localStorage.getItem('token')
+    // var user
+    // if (token) {
+    //     user = jwt_decode(token)
+
+    // }
+    // else{
+    //     user = {}
+    // }
+
     
-
-
       const routeChange =()=>{
  
         navigate('/register')
       }
+
+
 
    
 
@@ -32,22 +43,24 @@ const Login = () => {
             body: JSON.stringify({
                 email,
                 password,
-
+                
             }),
+
         })
+
 
         const data = await response.json()
 
         if (data.user) {
 			localStorage.setItem('token', data.user)
-			alert('Login successful')
+            let token = localStorage.getItem('token')
+            let user = jwt_decode(token)
+			alert('Login successful, you have logged in to this website for '+ user.visits+' times' )
 			window.location.href = '/'
 		} else {
 			alert('Please check your username and password')
 		}
-        // if (data.status === 'ok'){
-        //     history.pushState('/login')
-        // }
+        
     }
 
     return (

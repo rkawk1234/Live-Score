@@ -14,8 +14,7 @@ const Register = () => {
     
 
     async function registerUser(event) {
-        var points = 0
-        var visits = 0
+        
 		event.preventDefault()
 
 		const response = await fetch('http://localhost:1337/api/register', {
@@ -27,8 +26,7 @@ const Register = () => {
 				name,
 				email,
 				password,
-                points,
-                visits,
+
 			}),
 		})
 
