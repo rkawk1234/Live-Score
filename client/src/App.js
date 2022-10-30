@@ -4,76 +4,114 @@ import Home from './components/home';
 import Login from './components/login';
 import Register from './components/register';
 import Blog from './components/blog';
-// import {useState,useEffect} from 'react'
 import jwt_decode from 'jwt-decode'
-import {useState} from 'react'
-// import {useState } from 'react'
+import { useState } from 'react'
+import {
+  FaBars,
+  FaTimes,
 
-// function useForceUpdate(){
-//   const [value,setValue] = useState(0)
-//   return () => setValue(value => value+1)
-// }
+} from 'react-icons/fa'
+
 
 function App() {
 
-
+  const [curstate, setCurstate] = useState(false)
   const token = localStorage.getItem('token')
   var user
-  if (token){
+  if (token) {
     user = jwt_decode(token)
 
   }
-  else{
+  else {
     user = {}
   }
   console.log(user)
 
-  const [bool,setBool] = useState(token)
+  const [bool, setBool] = useState(token)
 
 
 
 
 
   return (
-  
-      <div className="App">
-        <Router>
 
-        
+    <div className="App">
+      <Router>
 
-      <div className='flex justify-between w-full  h-20 bg-gray-900'>
 
-      <div className='my-auto pl-5 text-gray-500 hover:scale-125'>Points: {user ? user.points : ""}</div>
 
-        <ul className='md:flex'>
-          
+        <div className='flex justify-between w-full  h-20 bg-gray-900'>
 
-          <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200 '>
-            <Link to="/">Home</Link>
-          </li>
+          <div className='my-auto pl-5 text-gray-500 hover:scale-125'>Points: {user ? user.points : ""}</div>
 
-          
-          {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
-            <Link to='/blog'>Blog</Link>
-          </li>}
+          <ul className='hidden md:flex'>
 
-          <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
-            <Link to='/register'>Register</Link>
-          </li>
-        
-           {!bool &&<li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
-            <Link to='/login'>Login</Link>
-          </li>}
-          
-          {bool &&<li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
-              onClick={()=>{
+
+            <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200 '>
+              <Link to="/">Home</Link>
+            </li>
+
+
+            {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+              <Link to='/blog'>Blog</Link>
+            </li>}
+
+            <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+              <Link to='/register'>Register</Link>
+            </li>
+
+            {!bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+              <Link to='/login'>Login</Link>
+            </li>}
+
+            {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
+              onClick={() => {
                 localStorage.clear()
                 setBool(!bool)
-                
+
               }}><Link to='/login'>Logout</Link></li>}
 
-          
-        </ul>
+
+          </ul>
+          <div
+            onClick={() => setCurstate(!curstate)}
+            className='my-auto cursor-pointer pr-4 z-10 text-gray-500 md:hidden '>
+            {curstate ? <FaTimes size={30} /> : <FaBars size={30} />}
+
+          </div>
+          {curstate && (
+            <ul className='flex flex-col juistify-center items-center
+            absolute top-0 left-0 w-full h-screen bg-gradient-to-b
+             from-black to-gray-800 text-gray-500'>
+              <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200 '>
+                <Link to="/">Home</Link>
+              </li>
+
+
+              {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+                <Link to='/blog'>Blog</Link>
+              </li>}
+
+              <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+                <Link to='/register'>Register</Link>
+              </li>
+
+              {!bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+                <Link to='/login'>Login</Link>
+              </li>}
+
+              {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
+                onClick={() => {
+                  localStorage.clear()
+                  setBool(!bool)
+
+                }}><Link to='/login'>Logout</Link></li>}
+
+
+            </ul>
+
+          )}
+
         </div>
         <Routes>
           <Route exact path='/' element={<Home />} />
@@ -81,8 +119,8 @@ function App() {
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/register' element={<Register />} />
         </Routes>
-        </Router>
-      </div>
+      </Router>
+    </div>
 
   );
 }
