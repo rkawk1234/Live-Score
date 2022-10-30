@@ -6,6 +6,7 @@ import Register from './components/register';
 import Blog from './components/blog';
 // import {useState,useEffect} from 'react'
 import jwt_decode from 'jwt-decode'
+import {useState} from 'react'
 // import {useState } from 'react'
 
 // function useForceUpdate(){
@@ -26,6 +27,10 @@ function App() {
     user = {}
   }
   console.log(user)
+
+  const [bool,setBool] = useState(token)
+
+
 
 
 
@@ -56,15 +61,16 @@ function App() {
             <Link to='/register'>Register</Link>
           </li>
         
-          <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+           {!bool &&<li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
             <Link to='/login'>Login</Link>
-          </li>
+          </li>}
           
-          <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
+          {bool &&<li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'
               onClick={()=>{
                 localStorage.clear()
+                setBool(!bool)
                 
-              }}><Link to='/login'>Logout</Link></li>
+              }}><Link to='/login'>Logout</Link></li>}
 
           
         </ul>

@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const User = require('./models/user.model')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+const { urlencoded } = require('express')
 
 
 app.use(cors())
@@ -30,10 +31,15 @@ app.post('/api/register', async (req, res) => {
 	}
 })
 
+
+// app.get('/api/login', asyn (req, res) => {
+
+
+// })
+  
+
 app.post('/api/login', async (req, res) => {
-
-
-
+	
 	const user = await User.findOne({
 		email: req.body.email,
 	})
@@ -41,25 +47,16 @@ app.post('/api/login', async (req, res) => {
     await User.findOneAndUpdate(
         {email: req.body.email},
         {$inc :{visits : 1}},
-        // {$inc:{points: 1000}},
-        
     )
 
-    // const isTrue = await User.findOne({
-    //     visits: 1
-    // })
-    // if (isTrue){
-    //     await User.findOneAndUpdate(
-    //         {email: req.body.email},
-    //         {$inc :{points : 1000}}
-            
-    //     )
+	const visits = await User.findOne({email: req.body.email, visits: 1});
 
-    // }
-
-    
-
-
+	if (visits){
+		await User.findOneAndUpdate(
+			{email: req.body.email},
+			{$inc : {points:10000}} //give 10000 points on very first login
+		)
+	}
 
 	if (!user) {
 		return { status: 'error', error: 'Invalid Email' }
@@ -75,6 +72,8 @@ app.post('/api/login', async (req, res) => {
 			{
 				name: user.name,
 				email: user.email,
+				visits: user.visits,
+				points: user.points,
 			},
 			'secret123'
 		)

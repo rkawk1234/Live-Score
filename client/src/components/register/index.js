@@ -9,12 +9,13 @@ const Register = () => {
     const [name, setName ] = useState('')
     const [email, setEmail ] = useState('') 
     const [password, setPassword] = useState('')
-    var points = 0
-    var visits = 0
+    
 
     
 
     async function registerUser(event) {
+        var points = 0
+        var visits = 0
 		event.preventDefault()
 
 		const response = await fetch('http://localhost:1337/api/register', {
