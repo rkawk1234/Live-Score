@@ -11,6 +11,7 @@ const Login = () => {
     const [email, setEmail ] = useState('') 
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    
     // const token = localStorage.getItem('token')
     // var user
     // if (token) {
@@ -55,7 +56,7 @@ const Login = () => {
 			localStorage.setItem('token', data.user)
             let token = localStorage.getItem('token')
             let user = jwt_decode(token)
-			alert('Login successful, you have logged in to this website for '+ user.visits+' times' )
+			alert('Login successful, you have logged in to this website for '+ (user.visits+1)+' times' )
 			window.location.href = '/'
 		} else {
 			alert('Please check your username and password')
