@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './components/home';
 import Login from './components/login';
 import Register from './components/register';
-import Blog from './components/blog';
+import Livescore from './components/livescore';
 import Play from './components/play'
 import jwt_decode from 'jwt-decode'
 import { useState } from 'react'
+
 import {
   FaBars,
   FaTimes,
@@ -54,7 +55,7 @@ function App() {
 
 
             {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
-              <Link to='/blog'>Blog</Link>
+              <Link to='/livescore'>Live Score</Link>
             </li>}
 
             {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
@@ -93,9 +94,9 @@ function App() {
               </li>
 
               {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
-                <Link to='/blog'>Blog</Link>
+                <Link to='/livescore'>Live Score</Link>
               </li>}
-              
+
               {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
                 <Link to='/play'>Play</Link>
               </li>}
@@ -123,7 +124,7 @@ function App() {
         </div>
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route exact path='/blog' element={<Blog />} />
+          <Route exact path='/livescore' element={<Livescore />} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/register' element={<Register />} />
           <Route exact path='/play' element= {<Play />} />
