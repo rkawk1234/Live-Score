@@ -31,7 +31,7 @@ const Livescore = () => {
 
       for (let i=0; i<json.response.length;i++){
 
-        document.getElementById("liveData").innerHTML += "<tr> <td>"+ json.response[i].teams.home.name +"</td> <td>"+ json.response[i].goals.home +"</td> <td>"+json.response[i].goals.away+" </td>  <td>"+ json.response[i].teams.away.name +"</td> </tr>"
+        document.getElementById("liveData").innerHTML += "<tr> <td> <img src=" + json.response[i].teams.home.logo +"><img/>"+ json.response[i].teams.home.name +"</td> <td>"+ json.response[i].goals.home +"</td> <td>"+json.response[i].goals.away+" </td>  <td>"+ json.response[i].teams.away.name +"</td> </tr>"
       }
       
 

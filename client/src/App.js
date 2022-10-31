@@ -4,7 +4,7 @@ import Home from './components/home';
 import Login from './components/login';
 import Register from './components/register';
 import Livescore from './components/livescore';
-import Play from './components/play'
+import PastGames from './components/pastgames'
 import jwt_decode from 'jwt-decode'
 import { useState } from 'react'
 
@@ -59,7 +59,7 @@ function App() {
             </li>}
 
             {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
-              <Link to='/play'>Play</Link>
+              <Link to='/pastgames'>Past Games</Link>
             </li>}
 
             <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
@@ -98,7 +98,7 @@ function App() {
               </li>}
 
               {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
-                <Link to='/play'>Play</Link>
+                <Link to='/pastgames'>Past Games</Link>
               </li>}
 
               <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
@@ -127,7 +127,7 @@ function App() {
           <Route exact path='/livescore' element={<Livescore />} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/register' element={<Register />} />
-          <Route exact path='/play' element= {<Play />} />
+          <Route exact path='/pastgames' element= {<PastGames />} />
         </Routes>
       </Router>
     </div>
