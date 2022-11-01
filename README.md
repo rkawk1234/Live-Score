@@ -1,3 +1,3 @@
-# poker-blog
+# Live-Score
 
 React, ExpressJS, NodeJS, MongoDB 
