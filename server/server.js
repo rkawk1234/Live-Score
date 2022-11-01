@@ -32,16 +32,6 @@ app.post('/api/register', async (req, res) => {
 })
 
 
-// app.get('/api/login', asyn (req, res) => {
-
-
-// })
-
-// app.get('/api/login', async (req,res) =>{
-
-	
-// })
-  
 
 app.post('/api/login', async (req, res) => {
 	
