@@ -57,10 +57,14 @@ function App() {
             {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
               <Link to='/livescore'>Live Score</Link>
             </li>}
+            <ul>
+              <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'><Link to='/games'>Games</Link></li>
+              <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>Nowhere</li>
+            </ul>
 
-            {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
+            {/* {bool && <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
               <Link to='/games'>Games</Link>
-            </li>}
+            </li>} */}
 
             <li className='px-8 my-auto cursor-pointer capitalize font-medium text-gray-500 hover:scale-125 duration-200'>
               <Link to='/register'>Register</Link>

@@ -102,8 +102,8 @@ fetch(url, options)
 
   return (
     <div className='h-full w-full flex justify-center bg-gradient-to-b from-zinc-500 to-zinc-700'>
-      <div className= "grid grid-cols-4 w-full h-screen">
-        <div id="country" className=" col-span-1 break-all">
+      <div className= "grid grid-cols-4 w-full h-screen ">
+        <div id="country" className=" col-span-1 break-all border-2 border-black">
           <div className='flex flex-cols'>
           <input className= "h-8"type="text" placeholder="Enter country" onChange={handleChange}/>
           <div className=''>
@@ -112,11 +112,11 @@ fetch(url, options)
           }/>
           </div>
           </div>
-          <div className='text-4lg text-neutral-300'>Countries</div>
+          <div className='text-4lg text-neutral-300 border-2 border-black'>Countries</div>
             
           </div>
 
-        <div id="aSec" className="col-span-3">
+        <div id="aSec" className="col-span-3 border-2 border-black">
           Another section
         </div>
 
