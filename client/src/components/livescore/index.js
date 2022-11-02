@@ -30,17 +30,6 @@ const Livescore = () => {
 
   
         for (let i = 0; i < json.response.length; i++) {
-          var timestamp =json.response[i].fixture.timestamp
-          var timestampFirst = json.response[i].fixture.periods.first
-          var timestampSecond = json.response[i].fixture.periods.second
-          
-          var dateFormat1 = new Date(timestamp)
-          var dateFormat2 = new Date(timestampFirst)
-          var dateFormat3 = new Date(timestampSecond)
-
-          console.log(dateFormat1)
-          console.log(dateFormat2)
-          console.log(dateFormat3)
   
           document.getElementById("liveData").innerHTML +=
            "<tr> <td><img src=" + json.response[i].teams.home.logo + 
